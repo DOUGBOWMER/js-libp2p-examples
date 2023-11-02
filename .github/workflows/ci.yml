@@ -20,7 +20,6 @@ jobs:
       fail-fast: false
       matrix:
         project:
-          - js-libp2p-example-browser-pubsub
           - js-libp2p-example-chat
           - js-libp2p-example-circuit-relay
           - js-libp2p-example-connection-encryption
@@ -71,7 +70,6 @@ jobs:
       fail-fast: true
       matrix:
         project:
-          - js-libp2p-example-browser-pubsub
           - js-libp2p-example-chat
           - js-libp2p-example-circuit-relay
           - js-libp2p-example-connection-encryption

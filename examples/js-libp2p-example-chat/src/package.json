@@ -1,8 +1,0 @@
-{
-  "name": "src",
-  "packageManager": "yarn@3.6.2",
-  " type": "module",
-  "dependencies": {
-    "@nodeutils/defaults-deep": "^1.1.0"
-  }
-}
