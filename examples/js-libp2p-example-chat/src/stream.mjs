@@ -1,14 +1,14 @@
 /* eslint-disable no-console */
 
-import * as lp from 'it-length-prefixed'
-import map from 'it-map'
-import { pipe } from 'it-pipe'
-import { fromString as uint8ArrayFromString } from 'uint8arrays/from-string'
-import { toString as uint8ArrayToString } from 'uint8arrays/to-string'
+import * as lp from "it-length-prefixed";
+import map from "it-map";
+import { pipe } from "it-pipe";
+import { fromString as uint8ArrayFromString } from "uint8arrays/from-string";
+import { toString as uint8ArrayToString } from "uint8arrays/to-string";
 
-export function stdinToStream (stream) {
+export function stdinToStream(stream) {
   // Read utf-8 from stdin
-  process.stdin.setEncoding('utf8')
+  process.stdin.setEncoding("utf8");
   pipe(
     // Read from stdin (the source)
     process.stdin,
@@ -18,10 +18,10 @@ export function stdinToStream (stream) {
     (source) => lp.encode(source),
     // Write to the stream (the sink)
     stream.sink
-  )
+  );
 }
 
-export function streamToConsole (stream) {
+export function streamToConsole(stream) {
   pipe(
     // Read from the stream (the source)
     stream.source,
@@ -34,8 +34,8 @@ export function streamToConsole (stream) {
       // For each chunk of data
       for await (const msg of source) {
         // Output the data as a utf8 string
-        console.log('> ' + msg.toString().replace('\n', ''))
+        console.log("> " + msg.toString().replace("\n", ""));
       }
     }
-  )
+  );
 }
